@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://acme.com/shipit.order.schema.json",
+	"title": "Request",
+	"description": "Shipping request for sending a product.",
+	"type": "object",
+	"properties": {
+        "productId": {
+            "type": "integer",
+			"minimum": 1000
+		},
+        "name": { "type": "string" },
+		"addr": {
+            "type": "string",
+            "pattern" : "^\\d+\\s[A-Za-z\\s]+(\\s[A-Za-z]+)*$"
+         },
+		"zip": { "type": "string" }
+	},
+	"additionalProperties": false,
+	"required": ["productId", "name", "addr", "zip"]
+}
